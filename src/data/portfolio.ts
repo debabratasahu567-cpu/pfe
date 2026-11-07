@@ -362,12 +362,12 @@ export const PORTFOLIO_DATA = {
     {
       title: "Tech Spark– IoT Workshop",
       date: "18–19 September 2026",
-      description: "Organized a two-day hands-on IoT workshop through the Renewable Energy Club, focusing on practical applications of IoT, sensors, and embedded technologies.",
+      description: "Served on the organizing team for a two-day hands-on IoT workshop through the Renewable Energy Club, focusing on practical applications of IoT, sensors, and embedded technologies.",
     },
     {
       title: "SensoTech– Hands-on Electronics Workshop",
       date: "11–12 April 2025",
-      description: "Organized a two-day hands-on workshop through the Renewable Energy Club covering sensors, microcontrollers, project building, and practical applications of electronics.",
+      description: "Served on the organizing team for a two-day hands-on workshop through the Renewable Energy Club covering sensors, microcontrollers, project building, and practical applications of electronics.",
     },
     {
       title: "Tinker to Tech– Project Building Workshop",
