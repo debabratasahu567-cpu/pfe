@@ -7,7 +7,7 @@ export const PORTFOLIO_DATA = {
     cgpa: "7.7/10",
     email: "debabratasahu05112003@gmail.com",
     linkedin: "https://www.linkedin.com/in/debabrata-sahu-05ad112003/",
-    github: "[YOUR GITHUB]",
+    github: "https://github.com/debabratasahu567-cpu",
     resume: "/debabrata_cv.pdf",
     shortBio: "I explore efficient digital hardware architectures through RTL design, FPGA implementation, and VLSI-oriented research.",
     secondBio: "My work spans digital IC design, computer arithmetic, approximate computing, FPGA-based systems, and mixed-signal IC design.",
@@ -65,13 +65,18 @@ export const PORTFOLIO_DATA = {
     {
       id: "02",
       title: "APPROXIMATE MULTIPLIER",
-      subtitle: "Hardware-Efficient Approximate Arithmetic",
+      subtitle: "Hardware-Efficient Arithmetic for AI Applications",
       category: "VLSI / APPROXIMATE COMPUTING",
       image: "/projects/approximatemultiplier.png?v=2",
-      description: "Designed an approximate multiplier using approximate compressor structures to investigate the trade-off between arithmetic accuracy and hardware cost. The architecture was implemented using Verilog HDL and evaluated using FPGA-oriented simulation and synthesis.",
-      technologies: ["Verilog HDL", "Xilinx Vivado", "RTL Design", "FPGA"],
+      description: "Designed an approximate multiplier architecture using inexact compressor logic for hardware-efficient arithmetic in AI-oriented applications. The design focuses on reducing hardware complexity and computational overhead while maintaining an acceptable level of multiplication accuracy.",
+      technologies: ["Verilog HDL", "Xilinx Vivado", "XSim", "RTL Design", "FPGA"],
       architecture: [
-        "Input A + Input B", "Partial Product Generation", "Approximate Compression", "Error Encoding", "Partial Product Reduction", "Final Product"
+        "Input Operands", "Partial Product Generation", "Approximate Compressor Tree", "Sum & Carry Generation", "Final Addition", "Output Product", "Error Analysis"
+      ],
+      focus: [
+        "Approximate computing",
+        "Digital multiplier architecture",
+        "Inexact compressor design"
       ],
       evaluation: true,
 
@@ -80,16 +85,22 @@ export const PORTFOLIO_DATA = {
     },
     {
       id: "03",
-      title: "12-bit Analog-to-Digital Converter",
-      subtitle: "Cadence-Based Mixed-Signal IC Design",
+      title: "12-BIT DIGITAL-TO-ANALOG CONVERTER",
+      subtitle: "Digital Signal to Analog Conversion Architecture",
       category: "MIXED-SIGNAL IC DESIGN",
       image: "/projects/12bitdigitaltoanalogconverter.jpeg?v=2",
-      description: "Designed and simulated a 12-bit Analog-to-Digital Converter using Cadence, exploring mixed-signal circuit implementation and digital output behavior.",
-      technologies: ["Cadence Virtuoso", "Circuit Simulation", "Mixed-Signal IC Design"],
+      description: "Designed a 12-bit digital-to-analog conversion architecture to convert digital input values into corresponding analog voltage levels. The design focuses on digital signal representation, conversion accuracy, and understanding the fundamental principles of DAC architecture and signal generation.",
+      technologies: ["Verilog HDL", "Xilinx Vivado", "XSim", "RTL Design", "FPGA"],
       architecture: [
-        "Analog Input", "ADC Architecture", "Sampling / Conversion Network", "Digital Output", "Circuit Simulation", "Performance Analysis"
+        "12-Bit Digital Input", "Binary Data Processing", "Digital Value Mapping", "DAC Conversion", "Analog Voltage Generation", "Output Signal", "Simulation & Verification"
       ],
-      focus: ["12-bit ADC design", "Cadence Virtuoso", "Mixed-signal IC design", "Circuit simulation", "Digital output analysis"],
+      focus: [
+        "Digital-to-analog conversion",
+        "12-bit resolution",
+        "Digital signal processing",
+        "RTL architecture",
+        "FPGA-based design"
+      ],
 
 
 
@@ -97,13 +108,20 @@ export const PORTFOLIO_DATA = {
     {
       id: "04",
       title: "TERAHERTZ METAMATERIAL ABSORBER-BASED SKIN CANCER DETECTION SYSTEM",
-      subtitle: "Research Project — Electromagnetic Sensing",
-      category: "RESEARCH / ELECTROMAGNETICS",
+      subtitle: "Metamaterial-Based Biomedical Sensing Architecture",
+      category: "ELECTROMAGNETIC DESIGN / CST / BIOMEDICAL APPLICATIONS",
       image: "/projects/terahertz.jpeg?v=2",
-      description: "Designed and investigated a terahertz metamaterial absorber for skin cancer detection applications. The structure was modeled and simulated using CST Studio Suite, followed by analysis of S-parameters, absorption characteristics, and resonance behavior for different tissue conditions.",
-      technologies: ["CST Studio Suite", "Electromagnetic Simulation", "S-Parameter Analysis", "Metamaterials"],
+      description: "Designed and simulated a terahertz metamaterial absorber structure for distinguishing normal and cancerous skin tissues through their electromagnetic response. The architecture utilizes resonant absorption characteristics and analyzes frequency shifts to explore non-invasive biomedical sensing applications.",
+      technologies: ["CST Studio Suite", "Electromagnetic Simulation", "Metamaterials", "Graphene", "Terahertz Technology"],
       architecture: [
-        "Metamaterial Unit Cell", "CST Modeling", "Electromagnetic Simulation", "S-Parameters", "Absorption Characteristics", "Resonance Analysis", "Tissue Comparison"
+        "Terahertz Wave Excitation", "Metamaterial Structure", "Electromagnetic Interaction", "Tissue Sample Integration", "Resonance Analysis", "Absorption Measurement", "Frequency Shift Analysis"
+      ],
+      focus: [
+        "Terahertz technology",
+        "Metamaterial absorber design",
+        "Electromagnetic simulation",
+        "Biomedical sensing",
+        "Resonance optimization"
       ],
 
 
@@ -112,10 +130,21 @@ export const PORTFOLIO_DATA = {
     {
       id: "05",
       title: "DECENTRALIZED NETWORKS",
+      subtitle: "Distributed Communication and Network Architecture",
       category: "DECENTRALIZED SYSTEMS / NETWORKS",
       image: "/projects/decentralized.png?v=2",
-      description: "Explored the concepts and architecture of decentralized networks, focusing on distributed communication, peer-to-peer connectivity, and the principles of network decentralization.",
-      focus: ["Decentralized Systems", "Distributed Networks", "Peer-to-Peer Communication", "Network Architecture"],
+      description: "Explored decentralized network architectures that enable distributed communication and information exchange without relying on a centralized authority. The concept focuses on peer-to-peer connectivity, distributed data management, network reliability, and understanding decentralized communication models.",
+      technologies: ["Computer Networks", "Distributed Systems", "Peer-to-Peer Networks", "Network Architecture"],
+      architecture: [
+        "Distributed Nodes", "Peer Discovery", "Node Authentication", "Peer-to-Peer Communication", "Data Exchange", "Distributed Processing", "Network Synchronization"
+      ],
+      focus: [
+        "Decentralized architecture",
+        "Peer-to-peer networking",
+        "Distributed systems",
+        "Network communication",
+        "Data management"
+      ],
 
 
 
@@ -123,10 +152,21 @@ export const PORTFOLIO_DATA = {
     {
       id: "06",
       title: "IoT-BASED MINING WORKER SAFETY HELMET",
+      subtitle: "Real-Time Health and Environmental Monitoring System",
       category: "EMBEDDED / IoT",
       image: "/projects/smartmining.png?v=2",
-      description: "Developed an IoT-enabled safety system designed to monitor environmental and worker-safety parameters in mining environments using sensors, microcontrollers, and cloud-based monitoring.",
-      technologies: ["Arduino / ESP32", "Sensors", "IoT", "ThingSpeak"],
+      description: "Developed an IoT-based mining worker safety helmet integrating multiple sensors to monitor environmental conditions and worker health parameters. The system uses ESP32 for real-time data processing, cloud-based monitoring, and alert generation to improve safety in mining environments.",
+      technologies: ["ESP32", "Arduino IDE", "ThingSpeak", "Blynk", "Pulse Sensor", "DHT11", "MQ-2 Gas Sensor", "LCD"],
+      architecture: [
+        "Sensor Data Acquisition", "Temperature & Humidity Monitoring", "Gas Concentration Detection", "Worker Pulse Monitoring", "ESP32 Data Processing", "Threshold Evaluation", "Buzzer & LED Alerts", "Cloud Data Monitoring"
+      ],
+      focus: [
+        "Internet of Things (IoT)",
+        "Embedded system design",
+        "Health parameter monitoring",
+        "Environmental sensing",
+        "Real-time safety alerts"
+      ],
 
 
 
@@ -134,10 +174,21 @@ export const PORTFOLIO_DATA = {
     {
       id: "07",
       title: "SMART AGRICULTURE MONITORING SYSTEM",
+      subtitle: "Intelligent Soil and Environmental Monitoring Architecture",
       category: "EMBEDDED / IoT",
       image: "/projects/smartgreenhouse.png?v=2",
-      description: "Developed an IoT-based agricultural monitoring system for sensing environmental conditions and supporting data-driven monitoring of agricultural parameters.",
-      technologies: ["Arduino / ESP32", "Sensors", "IoT", "ThingSpeak"],
+      description: "Developed an IoT-based smart agriculture monitoring system integrating multiple sensors to monitor soil moisture and environmental conditions. The system focuses on real-time data acquisition, environmental analysis, and intelligent monitoring to support efficient agricultural management and improved farming practices.",
+      technologies: ["Arduino IDE", "ESP32", "Soil Moisture Sensor", "DHT11", "MQ-2 Gas Sensor", "IR Sensor", "Rain Sensor"],
+      architecture: [
+        "Sensor Data Acquisition", "Soil Moisture Monitoring", "Temperature & Humidity Monitoring", "Gas Detection", "Rainfall Detection", "ESP32 Data Processing", "Condition Evaluation", "Monitoring & Alerts"
+      ],
+      focus: [
+        "Smart agriculture",
+        "IoT-based monitoring",
+        "Sensor integration",
+        "Environmental monitoring",
+        "Embedded system design"
+      ],
 
 
 
