@@ -15,12 +15,50 @@ export function Projects() {
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [dragMoved, setDragMoved] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = direction === 'left' ? -400 : 400;
-      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  const handleScroll = () => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const scrollPosition = container.scrollLeft;
+    const children = Array.from(container.children) as HTMLElement[];
+    if (children.length === 0) return;
+
+    let closestIndex = 0;
+    let minDistance = Infinity;
+    children.forEach((child, index) => {
+      const distance = Math.abs(child.offsetLeft - container.offsetLeft - scrollPosition);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = index;
+      }
+    });
+    setActiveIndex(closestIndex);
+  };
+
+  const scrollToProject = (index: number) => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const children = Array.from(container.children) as HTMLElement[];
+    if (children[index]) {
+      const targetLeft = children[index].offsetLeft - container.offsetLeft;
+      container.scrollTo({ left: targetLeft, behavior: "smooth" });
+      setActiveIndex(index);
     }
+  };
+
+  const scroll = (direction: "left" | "right") => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const children = Array.from(container.children) as HTMLElement[];
+    if (children.length === 0) return;
+
+    const nextIndex =
+      direction === "left"
+        ? Math.max(0, activeIndex - 1)
+        : Math.min(children.length - 1, activeIndex + 1);
+
+    scrollToProject(nextIndex);
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -50,32 +88,21 @@ export function Projects() {
 
   return (
     <section id="work" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-[var(--color-border)] relative">
-      <div className="mb-12 max-w-4xl flex items-end justify-between">
-        <div>
-          <h3 className="text-3xl md:text-5xl font-medium tracking-tight uppercase leading-[1.2]">
-            PROJECTS
-          </h3>
-        </div>
-        
-        {/* Navigation Buttons for horizontal scroll */}
-        <div className="hidden md:flex gap-4">
-          <button onClick={() => scroll('left')} className="p-3 border border-[var(--color-border)] hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors rounded-full">
-            <ChevronLeft size={20} />
-          </button>
-          <button onClick={() => scroll('right')} className="p-3 border border-[var(--color-border)] hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors rounded-full">
-            <ChevronRight size={20} />
-          </button>
-        </div>
+      <div className="mb-12 max-w-4xl">
+        <h3 className="text-3xl md:text-5xl font-medium tracking-tight uppercase leading-[1.2]">
+          PROJECTS
+        </h3>
       </div>
 
       {/* Horizontal scrolling container */}
       <div 
         ref={scrollContainerRef}
+        onScroll={handleScroll}
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className={`flex overflow-x-auto gap-8 pb-12 hide-scrollbar relative items-stretch ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+        className={`flex overflow-x-auto gap-8 pb-6 hide-scrollbar relative items-stretch ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {PORTFOLIO_DATA.projects.map((project) => (
@@ -126,6 +153,43 @@ export function Projects() {
             </div>
           </motion.div>
         ))}
+      </div>
+
+      {/* Bottom Centered Navigation: Arrows + Project Indicator Dots */}
+      <div className="flex items-center justify-center gap-6 mt-8">
+        <button
+          onClick={() => scroll("left")}
+          disabled={activeIndex === 0}
+          className="p-3 border border-[var(--color-border)] hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors rounded-full disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-inherit"
+          aria-label="Previous project"
+        >
+          <ChevronLeft size={20} />
+        </button>
+
+        <div className="flex items-center gap-2">
+          {PORTFOLIO_DATA.projects.map((project, idx) => (
+            <button
+              key={project.id}
+              onClick={() => scrollToProject(idx)}
+              className={`transition-all duration-300 rounded-full h-2 ${
+                activeIndex === idx
+                  ? "w-8 bg-[var(--color-accent)]"
+                  : "w-2 bg-[var(--color-border)] hover:bg-[var(--foreground)]/40"
+              }`}
+              aria-label={`Go to project ${idx + 1}`}
+              title={`Project ${project.id}: ${project.title}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={() => scroll("right")}
+          disabled={activeIndex === PORTFOLIO_DATA.projects.length - 1}
+          className="p-3 border border-[var(--color-border)] hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors rounded-full disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-inherit"
+          aria-label="Next project"
+        >
+          <ChevronRight size={20} />
+        </button>
       </div>
 
       {/* Modal for details */}
